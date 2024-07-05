@@ -1,0 +1,95 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/contact.css}">
+</head>
+<body layout:fragment="body">
+
+<div class="containerX">
+    <!-- Contact form section -->
+    <div class="contact-box">
+        <!-- Left side of the form -->
+        <div class="container-left">
+            <h3>Fill up the form to get in touch with us</h3>
+            <!-- Form -->
+            <form id="contactForm" action="/Contact" method="post">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Phone</label>
+                        <input type="text" id="phone" name="phone" placeholder="+212 606060606" required>
+                    </div>
+                </div>
+
+                <!-- Input row for Email and Subject -->
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="email" name="email" placeholder="youremail@gmail.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Object</label>
+                        <input type="text" id="subject" name="subject" placeholder="Inquiry">
+                    </div>
+                </div>
+
+                <!-- Label for Message textarea -->
+                <label>Message</label>
+                <textarea rows="10" id="message" name="message" placeholder="Enter your Message" required></textarea>
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script>
+    // Function to validate the contact form before submission
+    function validateForm() {
+        // Get values from input fields
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+
+        // Check if name is empty
+        if (name.trim() == '') {
+            alert('Please enter your name');
+            return false;
+        }
+
+        // Check if phone number is empty
+        if (phone.trim() == '') {
+            alert('Please enter your phone number');
+            return false;
+        }
+
+        // Check if email is empty
+        if (email.trim() == '') {
+            alert('Please enter your email');
+            return false;
+        }
+
+        // Check if message is empty
+        if (message.trim() == '') {
+            alert('Please enter your message');
+            return false;
+        }
+
+        // All fields are filled, return true for form submission
+        return true;
+    }
+
+</script>
+
+</html>

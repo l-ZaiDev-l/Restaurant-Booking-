@@ -1,0 +1,122 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" th:href="@{/css/contact.css}">
+
+</head>
+<body layout:fragment="body">
+
+<style>
+    .custom-button {
+        background-color: #f6ac0f;
+        border-radius: 5px;
+        padding: 10px 20px;
+        color: #fff;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+        background-color: #e59e0b;
+        cursor: pointer;
+    }
+
+</style>
+
+<header class="header" id="home" th:style="'background-image: linear-gradient(rgba(15, 26, 44, 0.5), rgba(15, 26, 44, 0.5)), url(' + @{/images/} + ${restaurant.photo_url} + ')'">
+    <div class="section__container header__container">
+        <p class="section__subheader" >ABOUT</p>
+        <h1>Let's Discover More<br/><span th:text="'About ' + ${restaurant.name}"></span></h1>
+        <a href="https://resdiary.com/blog/restaurant-booking-system">
+            <button class="custom-button">Read More</button>
+        </a>
+    </div>
+</header>
+
+
+<section class="about" id="about">
+    <div class="section__container about__container">
+        <div class="about__content">
+            <p class="section__subheader" th:text="'About ' + ${restaurant.name}"></p>
+            <h2 class="section__header">Discover Our Underground</h2>
+            <p class="section__description" th:text="${restaurant.additionalText}">
+            </p>
+        </div>
+
+        <div class="map">
+            <!-- Google Map iframe -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217874.4148948578!2d-6.93689408575754!3d34.02088208040062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda74ab0c56b20a7%3A0xf5cfb14bc89fa40!2sRabat%2C%20Morocco!5e0!3m2!1sen!2s!4v1625236566883!5m2!1sen!2s"
+                    width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+
+        <div th:if="${session.user != null}">
+            <form id="reservationForm" action="/Reservate" method="post">
+                <!-- Other input fields for reservation -->
+                <input type="hidden" id="restaurantId" name="restaurantId" th:value="${restaurant.id}" />
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="numberOfPeople">Number Of People</label>
+                        <input type="text" id="numberOfPeople" name="numberOfPeople" placeholder="Enter Number Of People" style="width: 300px;" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="reservationDate">Reservation Date & Time</label>
+                        <input type="datetime-local" id="reservationDate" name="reservationDateTime" required>
+                    </div>
+                </div>
+                <button type="submit" class="custom-button">Reserve</button>
+            </form>
+        </div>
+
+        <div class="footer__col">
+            <h4>Contact Us</h4>
+            <div class="footer__links">
+                <li>
+                    <span><i class="ri-phone-fill"></i></span>
+                    <div>
+                        <h5 style="color: #0f1a2c">Phone Number</h5>
+                        <p th:text="${restaurant.phone}"></p>
+                    </div>
+                </li>
+                <li>
+                    <span><i class="ri-record-mail-line"></i></span>
+                    <div>
+                        <h5 style="color: #0f1a2c">Email</h5>
+                        <p th:text="${restaurant.email}"></p>
+                    </div>
+                </li>
+                <li>
+                    <span><i class="ri-map-pin-2-fill"></i></span>
+                    <div>
+                        <h5 style="color: #0f1a2c">Location</h5>
+                        <p th:text="${restaurant.address} +', '+ ${restaurant.city}">First St. NYC</p>
+                    </div>
+                </li>
+            </div>
+        </div>
+
+        <div th:if="${session.user == null}">
+            <a th:href="@{/login}">
+                <button class="custom-button">Login</button>
+            </a>
+        </div>
+
+
+
+
+
+
+
+    </div>
+</section>
+
+</body>
+
+</html>

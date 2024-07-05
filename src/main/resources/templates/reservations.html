@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="body">
+
+<header class="header" id="home" style="
+
+    background-image: linear-gradient(
+      rgba(15, 26, 44, 0.5),
+      rgba(15, 26, 44, 0.5)
+    ),
+    url(images/reservation.jpeg);
+
+">
+    <div class="section__container header__container">
+        <p class="section__subheader">ABOUT US</p>
+        <h1>Reservation List<br/>About Us</h1>
+        <a href="https://resdiary.com/blog/restaurant-booking-system">
+            <button class="btn">Read More</button>
+        </a>
+    </div>
+</header>
+
+
+<section class="about" id="about">
+    <div class="section__container about__containerX">
+        <table class="content-table">
+            <thead>
+            <tr>
+                <th>Restaurant Name</th>
+                <th>Localisation</th>
+                <th>Reservation Date</th>
+                <th>Reservation Time</th>
+                <th>Number Of People</th>
+                <th>Cancel Btn</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="reservation : ${reservations}">
+                    <td th:text="${reservation.restaurant.name}"></td>
+                    <td th:text="${reservation.restaurant.address}"></td>
+                    <td th:text="${#temporals.format(reservation.reservationDate, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${#temporals.format(reservation.reservationDate, 'HH:mm:ss')}"></td>
+                    <td th:text="${reservation.numberOfPeople}"></td>
+                    <td><form th:action="@{/cancelReservation/{id}(id=${reservation.id})}" method="post">
+                        <button type="submit" class="btn">Cancel</button>
+                    </form></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</body>
+</html>

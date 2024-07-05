@@ -1,0 +1,205 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Design Mastery | Miranda</title>
+  </head>
+  <body layout:fragment="body">
+
+
+    <header class="header" id="home">
+      <div class="section__container header__container">
+        <p class="section__subheader">WELCOM</p>
+        <h1>Find Your Restaurant <br/>for any occasion</h1>
+        <button class="btn">Discover</button>
+      </div>
+    </header>
+
+    <section class="booking">
+      <div class="section__container booking__container">
+        <form action="/Restaurants/search" method="get">
+          <div class="input__group">
+            <label for="restaurantName">Restaurent</label>
+            <input type="text" id="restaurantName" name="name" placeholder="Your Restaurant Name" />
+          </div>
+          <div class="input__group">
+            <label for="city">Citty</label>
+            <input type="text" id="city" name="city" placeholder="Your Restaurant City" />
+          </div>
+          <div class="input__group">
+            <label for="address">Adresse</label>
+            <input type="text" id="address" name="address" placeholder="Your Restaurant Address" />
+          </div>
+          <button class="btn" type="submit">Check Availability</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section__container about__container">
+        <div class="about__grid">
+          <div class="about__image">
+            <img src="images/about-1.jpg" alt="about" />
+          </div>
+          <div class="about__card">
+            <span><i class="ri-user-line"></i></span>
+            <h4>Strong Team</h4>
+            <p>
+              Unlocking Hospitality Excellence And Ensures Your Perfect Stay
+            </p>
+          </div>
+          <div class="about__image">
+            <img src="images/about-2.jpg" alt="about" />
+          </div>
+          <div class="about__card">
+            <span><i class="ri-calendar-check-line"></i></span>
+            <h4>Luxury Restaurant</h4>
+            <p>Experience Unrivaled Luxury at Our Exquisite Luxury Restaurants</p>
+          </div>
+        </div>
+        <div class="about__content">
+          <p class="section__subheader">ABOUT US</p>
+          <h2 class="section__header">Discover Our Underground</h2>
+          <p class="section__description">
+            Welcome to a hidden realm of extraordinary accommodations where
+            luxury, comfort, and adventure converge. Our underground Restaurants
+            offer an unparalleled escape from the ordinary, inviting you to
+            explore a subterranean world of wonders.
+          </p>
+          <button class="btn">Book Now</button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="intro">
+      <div class="section__container intro__container">
+        <div class="intro__cotent">
+          <p class="section__subheader">INTRO VIDEO</p>
+          <h2 class="section__header">Meet With Our Luxury Place</h2>
+          <p class="section__description">
+            Whether you're seeking a cozy and exclusive hideaway or an immersive
+            journey beneath the surface, Restaurant Miranda promises to be an
+            unforgettable stay, where the depths of comfort and excitement await
+            your arrival.
+          </p>
+          <button class="btn">Book Now</button>
+        </div>
+        <div class="intro__video">
+          <video src="videos/luxury.mp4" autoplay muted loop></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container feature__container" id="feature">
+      <p class="section__subheader">FACILITIES</p>
+      <h2 class="section__header">Core Features</h2>
+      <div class="feature__grid">
+        <div class="feature__card">
+          <span><i class="ri-thumb-up-line"></i></span>
+          <h4>Have High Rating</h4>
+          <p>
+            We take pride in curating a selection of Restaurant that consistently
+            receive high ratings and positive reviews.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-time-line"></i></span>
+          <h4>Quite Hours</h4>
+          <p>
+            We understand that peace and uninterrupted rest are essential for a
+            rejuvenating experience.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-map-pin-line"></i></span>
+          <h4>Best Location</h4>
+          <p>
+            At our hotel booking website, we take pride in offering
+            accommodations in the most prime and sought-after locations.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-close-circle-line"></i></span>
+          <h4>Free Cancellation</h4>
+          <p>
+            We understand that travel plans can change unexpectedly, which is
+            why we offer the flexibility of free cancellation.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-wallet-line"></i></span>
+          <h4>Payment Options</h4>
+          <p>
+            Our hotel booking website offers a range of convenient payment
+            options to suit your preferences.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-coupon-line"></i></span>
+          <h4>Special Offers</h4>
+          <p>
+            Whether you're planning a romantic getaway, or a business trip, our
+            carefully curated special offers cater to all your needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section__container news__container" id="news">
+      <div class="news__header">
+        <div>
+          <p class="section__subheader">BLOG</p>
+          <h2 class="section__header">News Feeds</h2>
+        </div>
+        <div class="section__nav">
+          <span><i class="ri-arrow-left-line"></i></span>
+          <span><i class="ri-arrow-right-line"></i></span>
+        </div>
+      </div>
+      <div class="news__grid">
+        <div class="news__card">
+          <img src="images/news-1.jpg" alt="news" />
+          <div class="news__card__title">
+            <p>25th March 2022</p>
+            <p>By Emily</p>
+          </div>
+          <h4>Exploring Local Culinary Gems: A Foodie's Guide.</h4>
+          <p>
+            Join Emily as she takes you on a gastronomic adventure through the
+            neighborhood surrounding our hotel.
+          </p>
+        </div>
+        <div class="news__card">
+          <img src="images/news-2.jpg" alt="news" />
+          <div class="news__card__title">
+            <p>15th June 2022</p>
+            <p>By David</p>
+          </div>
+          <h4>Balancing Mind, Body, and Soul at Our Hotel.</h4>
+          <p>
+            Join Sbiksla as she takes you on a gastronomic adventure through the
+            neighborhood surrounding our hotel.
+          </p>
+        </div>
+        <div class="news__card">
+          <img src="images/news-3.jpg" alt="news" />
+          <div class="news__card__title">
+            <p>08th August 2022</p>
+            <p>By Sarah</p>
+          </div>
+          <h4>Exploring Outdoor Activities Near Our Hotel.</h4>
+          <p>
+            From hiking and biking trails to water sports and wildlife
+            encounters, she highlights ways to experience nature's wonders.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
